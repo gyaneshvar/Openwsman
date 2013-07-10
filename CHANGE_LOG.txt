@@ -1,0 +1,14 @@
+
+File Modified to support windows system : 
+								openwsman.i Line :156  To remove blank struct {}
+								openwsman.i Line :42  -> To update the dll name.
+								openwsman.i Line :166  commented to remove //debug_add_handler( debug
+Lines Commented for now to address the Pthread and curl related issues:
+
+		1.Openwsman_wrap.c :
+					Reverted Line : 263 Changed by openwsman.i file modification
+					Reverted Line :4460 as modifying wsman-client-transport.c  Line 268  #ifndef _WIN32 to #ifdef _WIN32 
+					Reverted Line :4470 as modifying wsman-client-transport.c  Line 268  #ifndef _WIN32 to #ifdef _WIN32 
+		
+		2. wsman-soap.c
+						Line : 982	// As value for max_threads=1 and max_connections_per_thread=20; is hardcoded in wsmand-daemon.c
