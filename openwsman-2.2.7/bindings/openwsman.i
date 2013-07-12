@@ -81,10 +81,10 @@
 /* get the java environment so we can throw exceptions */
 %{
     static JNIEnv *jenv;
-    jint JNI_OnLoad(JavaVM *vm, void *reserved) {
+    /*jint JNI_OnLoad(JavaVM *vm, void *reserved) {
       (*vm)->AttachCurrentThread(vm, (void **)&jenv, NULL);
       return JNI_VERSION_1_2;
-    }
+    } */
 %}
 #endif
 

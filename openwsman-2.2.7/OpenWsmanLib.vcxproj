@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B94E87ED-EB72-4C2F-A6A6-951219B13141}</ProjectGuid>
+    <RootNamespace>OpenWsmanLib</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>11.0.50727.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>..\lib\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>..\lib\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>C:\OpenSSL-Win32\include;D:\target\thirdparty\libcurl\include;C:\Program Files (x86)\GnuWin32\include;D:\target\thirdparty\include;D:\target\openwsman-2.2.7\include;C:\Program Files\Microsoft Platform SDK\include;$(MSSDK)\include;.\libxml2\include;.\libiconv\include;.\include;.\src\cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WIN32;_WIN32_WINNT=0x0501;_DEBUG;USE_WINSOCK;LIBXML_STATIC;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <Lib>
+      <AdditionalDependencies>D:\target\thirdparty\lib\libxml2_a.lib;winhttp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>D:\target\openwsman-2.2.7\Lib\$(ProjectName)D.lib</OutputFile>
+      <AdditionalLibraryDirectories>C:\Program Files\Microsoft Platform SDK\Lib;.\libxml2\lib;$(MSSDK)\Lib;pthreadVC2.lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(OPENSSL_HOME)\include;$(LIBCURL_HOME)\include;$(OPENWS_GNU)\include;$(OPENWS_BASE)\openwsman-2.2.7\include;C:\Program Files\Microsoft Platform SDK\include;$(MSSDK)\include;.\libxml2\include;.\libiconv\include;.\include;.\src\cpp;$(JAVA_HOME)\include\;$(JAVA_HOME)\include\win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0501;NDEBUG;USE_WINSOCK;LIBXML_STATIC;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>$(OPENWS_BASE)\openwsman-2.2.7\include\libxml\libxml2_a.lib;Ws2_32.lib;crypt32.lib;rpcrt4.lib;$(OPENWS_GNU)\lib\iconv.lib;$(OPENWS_GNU)\lib\zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OPENWS_BASE)\openwsman-2.2.7\bindings\out\classes\wsmanclient.dll</OutputFile>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\lib\u\base64.c" />
+    <ClCompile Include="src\lib\u\buf.c" />
+    <ClCompile Include="src\lib\u\debug.c" />
+    <ClCompile Include="src\lib\u\gettimeofday.c" />
+    <ClCompile Include="src\lib\u\hash.c" />
+    <ClCompile Include="src\lib\u\iniparser.c" />
+    <ClCompile Include="src\lib\u\list.c" />
+    <ClCompile Include="src\lib\u\lock.c" />
+    <ClCompile Include="src\lib\u\log.c" />
+    <ClCompile Include="src\lib\u\md5.c" />
+    <ClCompile Include="src\lib\u\memory.c" />
+    <ClCompile Include="src\lib\u\misc.c" />
+    <ClCompile Include="openwsman_wrap.c" />
+    <ClCompile Include="src\cpp\OpenWsmanClient.cpp" />
+    <ClCompile Include="src\lib\u\os.c" />
+    <ClCompile Include="src\lib\u\pthreadx_win32.c" />
+    <ClCompile Include="src\lib\u\strings.c" />
+    <ClCompile Include="src\lib\u\syslog.c" />
+    <ClCompile Include="src\lib\u\uerr.c" />
+    <ClCompile Include="src\lib\u\uoption.c" />
+    <ClCompile Include="src\lib\u\uri.c" />
+    <ClCompile Include="src\lib\u\uuid.c" />
+    <ClCompile Include="src\lib\wsman-client-transport.c" />
+    <ClCompile Include="src\lib\wsman-client.c" />
+    <ClCompile Include="src\lib\wsman-debug.c" />
+    <ClCompile Include="src\lib\wsman-dispatcher.c" />
+    <ClCompile Include="src\lib\wsman-epr.c" />
+    <ClCompile Include="src\lib\wsman-faults.c" />
+    <ClCompile Include="src\lib\wsman-filter.c" />
+    <ClCompile Include="src\lib\wsman-libxml2-binding.c" />
+    <ClCompile Include="src\lib\wsman-soap-envelope.c" />
+    <ClCompile Include="src\lib\wsman-soap-message.c" />
+    <ClCompile Include="src\lib\wsman-soap.c" />
+    <ClCompile Include="src\lib\wsman-win-client-transport.c" />
+    <ClCompile Include="src\lib\wsman-xml-serialize.c" />
+    <ClCompile Include="src\lib\wsman-xml.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\u\base64.h" />
+    <ClInclude Include="include\u\buf.h" />
+    <ClInclude Include="include\u\carpal.h" />
+    <ClInclude Include="include\u\debug.h" />
+    <ClInclude Include="src\cpp\Exception.h" />
+    <ClInclude Include="include\u\gettimeofday.h" />
+    <ClInclude Include="include\u\hash.h" />
+    <ClInclude Include="include\u\iniparser.h" />
+    <ClInclude Include="include\u\libu.h" />
+    <ClInclude Include="include\u\list.h" />
+    <ClInclude Include="include\u\lock.h" />
+    <ClInclude Include="include\u\log.h" />
+    <ClInclude Include="include\u\logprv.h" />
+    <ClInclude Include="include\u\md5.h" />
+    <ClInclude Include="include\u\memory.h" />
+    <ClInclude Include="include\u\misc.h" />
+    <ClInclude Include="openwsman.h" />
+    <ClInclude Include="src\cpp\OpenWsmanClient.h" />
+    <ClInclude Include="include\u\os.h" />
+    <ClInclude Include="include\u\pthreadx.h" />
+    <ClInclude Include="include\u\strings.h" />
+    <ClInclude Include="include\u\syslog.h" />
+    <ClInclude Include="include\u\uerr.h" />
+    <ClInclude Include="include\u\uoption.h" />
+    <ClInclude Include="include\u\uri.h" />
+    <ClInclude Include="include\u\uuid.h" />
+    <ClInclude Include="include\wsman-client-api.h" />
+    <ClInclude Include="include\wsman-client-transport.h" />
+    <ClInclude Include="include\wsman-epr.h" />
+    <ClInclude Include="include\wsman-faults.h" />
+    <ClInclude Include="include\wsman-filter.h" />
+    <ClInclude Include="include\wsman-xml-serialize.h" />
+    <ClInclude Include="include\wsman-xml-serializer.h" />
+    <ClInclude Include="src\cpp\WsmanClient.h" />
+    <ClInclude Include="src\cpp\WsmanEPR.h" />
+    <ClInclude Include="src\cpp\WsmanFilter.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

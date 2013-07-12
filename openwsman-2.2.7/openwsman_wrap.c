@@ -205,10 +205,10 @@ static void SWIGUNUSED SWIG_JavaThrowException(JNIEnv *jenv, SWIG_JavaExceptionC
 
 
     static JNIEnv *jenv;
-    jint JNI_OnLoad(JavaVM *vm, void *reserved) {
+    /*jint JNI_OnLoad(JavaVM *vm, void *reserved) {
       (*vm)->AttachCurrentThread(vm, (void **)&jenv, NULL);
       return JNI_VERSION_1_2;
-    }
+    } */
 
 
 #if defined(SWIGPERL)

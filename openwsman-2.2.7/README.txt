@@ -3,11 +3,12 @@ Folder Contents :
 
 	1.openwsman-2.2.7     : Modified openwsman-2.2.7 for creating dll on Windows .
 	2.OpenwsJarTest       : Eclipse Project to Test openwsclient jar.
-	3.dlls 				  : For Quick Test Setup Copy the contents of dll to following
+	3.dlls 				  : Copy the contents of dll to following
 							C:\Windows\System32  If your system has 32 bit os
 							OR
 							C:\Windows\SysWOW64  If your system has 64 bit os
 
+	
 							
 ################################## Quick Jar Test SET-UP ####################################
 
@@ -42,7 +43,7 @@ Download links and Setting Environment variables:
 		Install and Set Environment Variable : OPENSSL_HOME - C:\OpenSSL-Win32 
 	
 	2.  libcurl : http://curl.haxx.se/download/libcurl-7.19.3-win32-ssl-msvc.zip	
-		Extract and Set Environment Variable : LIBCURL_HOME - C:\OpenSSL-Win32  
+		Extract to C:\libcurl and Set Environment Variable : LIBCURL_HOME - C:\libcurl
 		
 	3. 	A. http://sourceforge.net/projects/gnuwin32/files/libiconv/1.9.2-1/libiconv-1.9.2-1.exe/download
 		B. http://sourceforge.net/projects/gnuwin32/files/zlib/1.2.3/zlib-1.2.3.exe/download
@@ -50,6 +51,7 @@ Download links and Setting Environment variables:
 		Note : We have downloaded libxml2 from http://xmlsoft.org/sources/win32/libxml2-2.7.8.win32.zip 
 				and kept as part of openwsman.	
 		File A and B will be installed in like " C:\Program Files (x86)\GnuWin32"
+		Open folder C:\Program Files\GnuWin32\lib rename libiconv.lib to iconv.lib in 
 		
 		Set Environment Variable OPENWS_GNU  :  C:\Program Files (x86)\GnuWin32
 	
