@@ -264,7 +264,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\OPENWS_BASE\openwsman-2.2.7\src\lib\wsman-dispatcher.c"
+				RelativePath=".\src\lib\wsman-dispatcher.c"
 				>
 			</File>
 			<File

@@ -8,16 +8,22 @@ Folder Contents :
 							OR
 							C:\Windows\SysWOW64  If your system has 64 bit os
 
-	
 							
 ################################## Quick Jar Test SET-UP ####################################
 
 To Quick Test :
-		
+			
  Import OpenwsJarTest as existing project in Eclipse.
-		 Open identify.java modify the username password and IP,Port , then run.
+ 
+		1. If you have 64 bit jdk installed then copy openwsman-2.2.7\bindings\out\x64\openwsmanclient.jar 
+		    to OpenwsJarTest\lib folder.
+		  OR
+		   If you have 32 bit jdk installed then copy openwsman-2.2.7\bindings\out\win32\openwsmanclient.jar 
+		    to OpenwsJarTest\lib folder.
+		  
+		2. Open identify.java modify the username password and IP,Port , then run.
 			
-			
+		
 
 Output should be :
 				<?xml version="1.0"?>
@@ -43,7 +49,7 @@ Download links and Setting Environment variables:
 		Install and Set Environment Variable : OPENSSL_HOME - C:\OpenSSL-Win32 
 	
 	2.  libcurl : http://curl.haxx.se/download/libcurl-7.19.3-win32-ssl-msvc.zip	
-		Extract to C:\libcurl and Set Environment Variable : LIBCURL_HOME - C:\libcurl
+		Extract and Set Environment Variable : LIBCURL_HOME - C:\libcurl
 		
 	3. 	A. http://sourceforge.net/projects/gnuwin32/files/libiconv/1.9.2-1/libiconv-1.9.2-1.exe/download
 		B. http://sourceforge.net/projects/gnuwin32/files/zlib/1.2.3/zlib-1.2.3.exe/download
@@ -55,9 +61,10 @@ Download links and Setting Environment variables:
 		
 		Set Environment Variable OPENWS_GNU  :  C:\Program Files (x86)\GnuWin32
 	
-	4.	Set Environment Variable JAVA_HOME   : 	C:\Program Files (x86)\Java\jdk1.6.0_25
+	4.	Set Environment Variable JAVA_HOME   : 	C:\Program Files (x86)\Java\jdk1.6.0_25 (JAVA Installation DIR)
 			Add "C:\Program Files (x86)\Java\jdk1.6.0_25\bin;" to System Path
-	5. 	Set Environment Variable OPENWS_BASE :  D:\Openwsbase (Should Contain openwsman_win-2.2.7)
+			
+	5. 	Set Environment Variable OPENWS_BASE :  D:\Openwsbase (Should Contain openwsman-2.2.7)
 	
 	6.  SWIG Download Link : http://citylan.dl.sourceforge.net/project/swig/swigwin/swigwin-2.0.10/swigwin-2.0.10.zip
 			Extract the swigwin-2.0.10.zip to "C:\Program Files (x86)\"
@@ -70,37 +77,48 @@ Download links and Setting Environment variables:
 
 SWIG Tool :It will generate openwsman_wrap.c and java client supporting files.
 
-			> cd openwsman_win-2.2.7\
+			> cd openwsman-2.2.7\
 			> swigbuild.bat
 
 ######################################################################
 Building dll : 
-
-			1. Open OpenWsmanLib.sln in Visual Studio 
-			2. Building this project will generate wsmanclient.dll in "openwsman_win-2.2.7\bindings\out\classes"
+			
+			1. Open OpenWsmanLib.sln in Visual Studio
+			2. For 64 bit:
+						Select Project -> Properties -> Configuration Manager ( Top Right ) -> Active solution platform ( Select x64 ) -> close -> Apply 
+						Build the project. It will generate wsmanclient.dll in "openwsman-2.2.7\bindings\out\x64" .
+			   For 32 bit:
+						Select Project -> Properties -> Configuration Manager ( Top Right ) -> Active solution platform ( Select Win32 ) -> close -> Apply 
+						Build the project .	It will generate wsmanclient.dll in "openwsman-2.2.7\bindings\out\win32" .	
+						
+		
 	
 ######################################################################
 
-Building Jar and Javadoc : It will generate openwsmanclient.jar
+Building Jar and Javadoc : It will use the swig generated java files and dll to generate openwsmanclient.jar
 
-	1. > cd openwsman_win-2.2.7\
-	2. > jarbuild.bat
-	3. It will use the swig generated java files and dll to generate Jar file openwsman_win-2.2.7\bindings\out\openwsmanclient.jar.
-	4. It will also generate javadoc in dir openwsman_win-2.2.7\bindings\out for openwsmanclient.jar
+	1. > cd openwsman-2.2.7\
+	2.  For 64 bit:
+			> jarbuild.bat 
+			 Jar file will be created as openwsman-2.2.7\bindings\out\x64\openwsmanclient.jar
+		For 32 bit:
+			> jarbuild.bat 32
+			 Jar file will be created as openwsman-2.2.7\bindings\out\win32\openwsmanclient.jar
+
+	4. It will also generate javadoc in dir openwsman-2.2.7\bindings\out for openwsmanclient.jar
 
 ######################################################################	
 
 Testing Jar :
 
-	1. Open as existing progect "OpenwsJarTest" in Eclipse.
-	2. Copy openwsmanclient.jar to OpenwsJarTest->lib folder
+	1. Open "OpenwsJarTest" as existing project in Eclipse.
+	2. For 64 bit :
+			Copy openwsman-2.2.7\bindings\out\x64\openwsmanclient.jar to OpenwsJarTest->lib folder
+	   For 32 bit :
+			Copy openwsman-2.2.7\bindings\out\win32\openwsmanclient.jar to OpenwsJarTest->lib folder
+			
 	3. Run identify.java ,cim_enumerate_registered_profiles.java or others to test.
 		Please modify the Authentication property in these files
 	
 	
 #######################################################################
-
-
-	
-
-	

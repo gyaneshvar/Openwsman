@@ -90,6 +90,9 @@
     <ClCompile Include="src\lib\wsman-debug.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\lib\wsman-dispatcher.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="src\lib\wsman-epr.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -118,9 +121,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\lib\wsman-xml.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\lib\wsman-dispatcher.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
